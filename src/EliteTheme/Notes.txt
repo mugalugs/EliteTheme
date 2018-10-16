@@ -1,0 +1,115 @@
+﻿=== Tasks ===
+
+Done. Custom will have an extra pane for duplicating, delete, and name changes.
+
+Wont. Changed custom theme will find the first custom theme of the same name when saving.
+
+Wont. Custom theme will prevent duplicates.
+
+Done. Changing a preset and hitting use will automatically create a custom theme with the preset name as well as (Custom) and the date.
+
+Kinda. Random button on picker, it should make semi reasonable guesses.
+
+Done. Inspect override and read the current theme, should be Current in preset.
+
+Done. If paste in the matrix textbox then parse and change current theme. Should be able to parse other formats
+ - On blue will parse
+ - Supports <MatrixBlah> as well as 0 0 0 - 0 0 0 - 0 0 0
+
+Done. Show about dialog which has links to sources
+
+Done. Click on preview panel should change screenshots
+
+Done. Add current theme name to the preview
+
+Done. Adjust maximum and minimum to 400 on numbers, sliders should remain at 100, if not possible then 400 the lot
+
+Cant. Adjust step on sliders and counter 5
+
+Random might be aided if the row equals 1 (No idea how)
+
+Done. Random function to control random colour gen (GenColorNumber(chanceMinus, chanceMidRange, chanceOverOne))
+
+Done. Change to .NET 4.0 Client Profile
+
+Done(Maybe). Adjust PathToOverride so that Environment.SpecialFolder is used as much as possible to account for OSX
+ - "~/Library/Application Support/Frontier Developments/Elite Dangerous/Options/Graphics/"
+
+Done. Add commity market with rare screenshot
+
+Done. Add bulletin board screenshot
+
+Done. Adjust(force) culture to en-GB since the parse doesn't work in BR due to different formatting
+ - Forced current thread to en-GB
+
+Mark presets useful for colour blindness
+
+Add color rotation: https://docs.microsoft.com/en-us/dotnet/framework/winforms/advanced/how-to-rotate-colors
+ - https://docs.rainmeter.net/tips/colormatrix-guide/
+ - https://stackoverflow.com/questions/21977929/match-colors-in-fecolormatrix-filter
+
+Add better color controls in general
+ - http://graficaobscura.com/matrix/index.html
+ - https://www.c-sharpcorner.com/article/color-transformations-and-the-color-matrix/
+
+=== Testing ===
+<MatrixRed> 0, 0.2, 0.5 </MatrixRed>
+<MatrixGreen> 1, 0, 0 </MatrixGreen>
+<MatrixBlue> 0, 1, 1 </MatrixBlue>
+
+0 1 0 - 1 0 0 - 1 1 1
+
+
+=== Work Log ===
+
+30mins
+Sorting out UI
+
+2 Hours (7 - 8)
+Major functionality as well as preset coding of snakeyes
+
+== First release with basic presets ==
+
+2 Hours (10:30 - 12:15)
+Picker basics
+
+3 Hours (6:30 - 9)
+Random colour button in picker
+Changed themes now appear in custom
+Custom can be saved using button
+On close custom if altered is added to custom, and custom themes saved
+On load will attempt to load current override theme
+Theme serailization
+
+1 Hour (10:20 - 11:44)
+About dialog
+Changelog
+Disable custom controls when no custom is selected
+
+3 Hours
+Presets - I got a lot of 'work' done...
+
+1 Hours (5 - 6)
+Better random implementation
+Ability to change limit on slider and numbers
+
+1 Hour (8:30 10)
+Added the new main test screenshot as well as a general screenshot
+Solved small issue with scrolling the preview when drawing to the panel
+
+1 Hours
+Ordered tri color presets
+
+== Second release with full set of presets as well as customisation ==
+
+2 Hours (7 - 9)
+Forced en-GB
+Changed to .net 4 client profile
+Made adjustments for OSX paths
+Added two more screenshots for rare commodities and the bulletin board
+
+== Third release ==
+
+1 Hour
+Color matrix rotation
+
