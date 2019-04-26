@@ -23,6 +23,14 @@ namespace EliteTheme
         {
             StringBuilder changeLog = new StringBuilder();
 
+            changeLog.AppendLine("Version 3 - 2019/04/26");
+            changeLog.AppendLine("New hue picker");
+            changeLog.AppendLine(" - Started in 2018 but got stuck, looked at it for a minute and fixed it 2019...");
+            changeLog.AppendLine(" - Based upon Paul Haeberli's 93 work I adapted the C code to .NET");
+            changeLog.AppendLine(" - http://graficaobscura.com/matrix/index.html");
+            changeLog.AppendLine();
+            changeLog.AppendLine();
+
             changeLog.AppendLine("Version 2 - 2016/01/20");
             changeLog.AppendLine("Initial complaint fixes!");
             changeLog.AppendLine(" - Forced culture to en-GB which should fix the comma instead of period issue with parsing");
@@ -31,6 +39,7 @@ namespace EliteTheme
             changeLog.AppendLine(" - Added two more screenshots for rare commodities and the bulletin board");
             changeLog.AppendLine();
             changeLog.AppendLine();
+
             changeLog.AppendLine("Version 1 - 2016/01/19");
             changeLog.AppendLine("Initial feature set!");
             changeLog.AppendLine(" - Can select from a preset (Sourced from imgur, reddit and frontier forums)");
@@ -63,6 +72,11 @@ namespace EliteTheme
         private void LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(((LinkLabel)sender).Text);
+        }
+
+        private void changeLogRichTextBox_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.LinkText);
         }
     }
 }

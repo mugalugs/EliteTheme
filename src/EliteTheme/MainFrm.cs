@@ -21,7 +21,7 @@ namespace EliteTheme
         //http://imgur.com/gallery/GB7Dd - snakeeyesx21 gallery
         //http://imgur.com/gallery/RVEsI - black ui
         //https://forums.frontier.co.uk/showthread.php?t=73419 - 20 page thread with presets
-        
+
         Theme currentTheme = new Theme();
         bool ignoreUpdate = false;
         Random randomGenerator = new Random();
@@ -32,9 +32,11 @@ namespace EliteTheme
         {
             InitializeComponent();
 
+            //guess where the game is made
+            //guess what has hardcoded the culture
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-GB");
 
-            ChangePickerLimit(400);
+            ChangePickerLimit(1000);
             
             previewScreenshots.Add(EliteTheme.Properties.Resources.ui_test_bit_of_everything);
             previewScreenshots.Add(EliteTheme.Properties.Resources.commodities_rare);
@@ -119,13 +121,18 @@ namespace EliteTheme
             previewPanel.Invalidate();
         }
 
+        private string F(float v)
+        {
+            return v.ToString("n7");
+        }
+
         private string MatrixToString(float[][] matrix)
         {
             string m = "";
 
-            m += "<MatrixRed> " + matrix[0][0] + ", " + matrix[0][1] + ", " + matrix[0][2] + " </MatrixRed>\n";
-            m += "<MatrixGreen> " + matrix[1][0] + ", " + matrix[1][1] + ", " + matrix[1][2] + " </MatrixGreen>\n";
-            m += "<MatrixBlue> " + matrix[2][0] + ", " + matrix[2][1] + ", " + matrix[2][2] + " </MatrixBlue>\n";
+            m += "<MatrixRed> " + F(matrix[0][0]) + ", " + F(matrix[0][1]) + ", " + F(matrix[0][2]) + " </MatrixRed>\n";
+            m += "<MatrixGreen> " + F(matrix[1][0]) + ", " + F(matrix[1][1]) + ", " + F(matrix[1][2]) + " </MatrixGreen>\n";
+            m += "<MatrixBlue> " + F(matrix[2][0]) + ", " + F(matrix[2][1]) + ", " + F(matrix[2][2]) + " </MatrixBlue>\n";
 
             return m;
         }
@@ -137,9 +144,9 @@ namespace EliteTheme
             data += "    <GUIColour>\n";
             data += "        <Default>\n";
             data += "            <LocalisationName>Standard</LocalisationName>\n";
-            data += "            <MatrixRed> " + theme.Matrix[0][0] + ", " + theme.Matrix[0][1] + ", " + theme.Matrix[0][2] + " </MatrixRed>\n";
-            data += "            <MatrixGreen> " + theme.Matrix[1][0] + ", " + theme.Matrix[1][1] + ", " + theme.Matrix[1][2] + " </MatrixGreen>\n";
-            data += "            <MatrixBlue> " + theme.Matrix[2][0] + ", " + theme.Matrix[2][1] + ", " + theme.Matrix[2][2] + " </MatrixBlue>\n";
+            data += "            <MatrixRed> " + F(theme.Matrix[0][0]) + ", " + F(theme.Matrix[0][1]) + ", " + F(theme.Matrix[0][2]) + " </MatrixRed>\n";
+            data += "            <MatrixGreen> " + F(theme.Matrix[1][0]) + ", " + F(theme.Matrix[1][1]) + ", " + F(theme.Matrix[1][2]) + " </MatrixGreen>\n";
+            data += "            <MatrixBlue> " + F(theme.Matrix[2][0]) + ", " + F(theme.Matrix[2][1]) + ", " + F(theme.Matrix[2][2]) + " </MatrixBlue>\n";
             data += "        </Default>\n";
             data += "    </GUIColour>\n";
             data += "</GraphicsConfig>\n";
@@ -604,6 +611,10 @@ namespace EliteTheme
             {
                 AddCurrentCustom();
             }
+            else if (tabControl1.SelectedTab == huePickerTabPage)
+            {
+                button1_Click(null, EventArgs.Empty);
+            }
 
             DisableCustomControls();
         }
@@ -830,16 +841,22 @@ namespace EliteTheme
 
         #endregion
 
+        #region Hue Picker Events
+
         private void UpdateFromHuePicker()
         {
             if (ignoreUpdate) return;
 
             float[][] m = ColorMatrixHelper.CreateIdentity();
 
-            ColorMatrixHelper.Offset(ref m, redOffsetPScroll.Value, greenOffsetPScroll.Value, blueOffsetPScroll.Value);
+            //it 'can' alter preset or picker but only for hue
+            //offset, scale, or saturation changes would immediately ruin it
+            //these values can't be reverse engineered
+
+            ColorMatrixHelper.Offset(ref m, (float)redOffsetPScroll.Value / 100, (float)greenOffsetPScroll.Value / 100, (float)blueOffsetPScroll.Value / 100);
             ColorMatrixHelper.Scale(ref m, (float)redScalePScroll.Value / 100, (float)greenScalePScroll.Value / 100, (float)blueScalePScroll.Value / 100);
             ColorMatrixHelper.Saturation(ref m, (float)saturationPScroll.Value / 100);
-            ColorMatrixHelper.HueRotate(ref m, huePScroll.Value);
+            ColorMatrixHelper.HueRotate(ref m, (float)huePScroll.Value / 2);
 
             currentTheme.Matrix = ColorMatrixHelper.Compat(m);
 
@@ -885,5 +902,47 @@ namespace EliteTheme
         {
             UpdateFromHuePicker();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            redOffsetPScroll.Value = 0;
+            greenOffsetPScroll.Value = 0;
+            blueOffsetPScroll.Value = 0;
+            redScalePScroll.Value = 100;
+            greenScalePScroll.Value = 100;
+            blueScalePScroll.Value = 100;
+            saturationPScroll.Value = 100;
+            huePScroll.Value = 0;
+        }
+
+        private Color AngleToColor(int degrees)
+        {
+            double rad = degrees * Math.PI / 180.0;
+            //ugh - cos = 1 to -1, needs to be normalised
+            return Color.FromArgb(  (int)(((Math.Cos(rad) + 1) / 2) * 255),
+                                    (int)(((Math.Cos(rad + ((4 * Math.PI) / 3)) + 1) / 2) * 255),
+                                    (int)(((Math.Cos(rad + ((2 * Math.PI) / 3)) + 1) / 2) * 255));
+        }
+
+        private void huePickerTabPage_Paint(object sender, PaintEventArgs e)
+        {
+            Brush angle = Brushes.Black;
+
+            int controlSize = 17;
+
+            float step = (float)(huePScroll.Size.Width - (controlSize * 2)) / 360;
+            float x = huePScroll.Location.X + controlSize;
+
+            for (int d = 0; d < 360; d++)
+            {
+                angle = new SolidBrush(AngleToColor(d));
+
+                e.Graphics.FillRectangle(angle, x, huePScroll.Location.Y + huePScroll.Size.Height, step, 5);
+                x += step;
+            }
+        }
+
+        #endregion
+
     }
 }

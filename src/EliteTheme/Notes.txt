@@ -48,7 +48,7 @@ Add color rotation: https://docs.microsoft.com/en-us/dotnet/framework/winforms/a
  - https://docs.rainmeter.net/tips/colormatrix-guide/
  - https://stackoverflow.com/questions/21977929/match-colors-in-fecolormatrix-filter
 
-Add better color controls in general
+Done. Add better color controls in general
  - http://graficaobscura.com/matrix/index.html
  - https://www.c-sharpcorner.com/article/color-transformations-and-the-color-matrix/
 

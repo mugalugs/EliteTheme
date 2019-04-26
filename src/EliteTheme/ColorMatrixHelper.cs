@@ -9,7 +9,7 @@ namespace EliteTheme
     {
         //http://graficaobscura.com/matrix/index.html
         //Paul Haeberli - 1993
-        //Adapted to .NET - 2018
+        //Adapted to .NET - 2018/2019
 
         public const float RED_LUMINANCE = 0.3086f;
         public const float GREEN_LUMINANCE = 0.6094f;
@@ -93,11 +93,6 @@ namespace EliteTheme
             tmp[2][1] = (1.0f - saturation) * BLUE_LUMINANCE;
             tmp[2][2] = (1.0f - saturation) * BLUE_LUMINANCE + saturation;
             tmp[2][3] = 0.0f;
-
-            tmp[3][0] = 0.0f;
-            tmp[3][1] = 0.0f;
-            tmp[3][2] = 0.0f;
-            tmp[3][3] = 1.0f;
 
             Multiply(tmp, matrix, ref matrix);
         }
@@ -214,6 +209,8 @@ namespace EliteTheme
             yrc = (float)Math.Sqrt(2.0) / mag;
             RotateY(ref tmp, yrs, yrc);
 
+            //Multiply(tmp, matrix, ref matrix);
+
             /* shear the space to make the luminance plane horizontal */
             t = TransformPoint(tmp, RED_LUMINANCE, GREEN_LUMINANCE, BLUE_LUMINANCE);
             zsx = t[0] / t[2];
@@ -229,8 +226,8 @@ namespace EliteTheme
             ShearZ(ref tmp, -zsx, -zsy);
 
             /* rotate the grey vector back into place */
-            RotateY(ref tmp, -yrs, -yrc);
-            RotateX(ref tmp, -xrs, -xrc);
+            RotateY(ref tmp, -yrs, yrc);
+            RotateX(ref tmp, -xrs, xrc);
 
             Multiply(tmp, matrix, ref matrix);
         }

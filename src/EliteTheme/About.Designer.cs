@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.aboutTabPage = new System.Windows.Forms.TabPage();
+            this.linkLabel10 = new System.Windows.Forms.LinkLabel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.linkLabel9 = new System.Windows.Forms.LinkLabel();
@@ -48,7 +49,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.changeLogTabPage = new System.Windows.Forms.TabPage();
             this.changeLogRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.linkLabel10 = new System.Windows.Forms.LinkLabel();
             this.tabControl1.SuspendLayout();
             this.aboutTabPage.SuspendLayout();
             this.changeLogTabPage.SuspendLayout();
@@ -91,6 +91,18 @@
             this.aboutTabPage.TabIndex = 0;
             this.aboutTabPage.Text = "About";
             this.aboutTabPage.UseVisualStyleBackColor = true;
+            // 
+            // linkLabel10
+            // 
+            this.linkLabel10.AutoSize = true;
+            this.linkLabel10.Location = new System.Drawing.Point(55, 121);
+            this.linkLabel10.Name = "linkLabel10";
+            this.linkLabel10.Size = new System.Drawing.Size(467, 13);
+            this.linkLabel10.TabIndex = 23;
+            this.linkLabel10.TabStop = true;
+            this.linkLabel10.Text = "https://www.reddit.com/r/EliteDangerous/comments/41oiq1/i_made_a_thing_called_eli" +
+    "tetheme/";
+            this.linkLabel10.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkClicked);
             // 
             // label7
             // 
@@ -278,18 +290,7 @@
             this.changeLogRichTextBox.Size = new System.Drawing.Size(652, 310);
             this.changeLogRichTextBox.TabIndex = 0;
             this.changeLogRichTextBox.Text = "";
-            // 
-            // linkLabel10
-            // 
-            this.linkLabel10.AutoSize = true;
-            this.linkLabel10.Location = new System.Drawing.Point(55, 121);
-            this.linkLabel10.Name = "linkLabel10";
-            this.linkLabel10.Size = new System.Drawing.Size(467, 13);
-            this.linkLabel10.TabIndex = 23;
-            this.linkLabel10.TabStop = true;
-            this.linkLabel10.Text = "https://www.reddit.com/r/EliteDangerous/comments/41oiq1/i_made_a_thing_called_eli" +
-    "tetheme/";
-            this.linkLabel10.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkClicked);
+            this.changeLogRichTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.changeLogRichTextBox_LinkClicked);
             // 
             // About
             // 

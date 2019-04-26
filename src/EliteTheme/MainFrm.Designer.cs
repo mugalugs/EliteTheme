@@ -32,6 +32,19 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.presetsTabPage = new System.Windows.Forms.TabPage();
             this.presetListBox = new System.Windows.Forms.ListBox();
+            this.huePickerTabPage = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.huePScroll = new System.Windows.Forms.HScrollBar();
+            this.saturationPScroll = new System.Windows.Forms.HScrollBar();
+            this.blueScalePScroll = new System.Windows.Forms.HScrollBar();
+            this.greenScalePScroll = new System.Windows.Forms.HScrollBar();
+            this.redScalePScroll = new System.Windows.Forms.HScrollBar();
+            this.blueOffsetPScroll = new System.Windows.Forms.HScrollBar();
+            this.greenOffsetPScroll = new System.Windows.Forms.HScrollBar();
+            this.redOffsetPScroll = new System.Windows.Forms.HScrollBar();
             this.pickerTabPage = new System.Windows.Forms.TabPage();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -93,25 +106,18 @@
             this.useThemeBtn = new System.Windows.Forms.Button();
             this.previewPanel = new System.Windows.Forms.Panel();
             this.themeNameLabel = new System.Windows.Forms.Label();
-            this.huePickerTabPage = new System.Windows.Forms.TabPage();
-            this.redOffsetPScroll = new System.Windows.Forms.HScrollBar();
-            this.greenOffsetPScroll = new System.Windows.Forms.HScrollBar();
-            this.blueOffsetPScroll = new System.Windows.Forms.HScrollBar();
-            this.redScalePScroll = new System.Windows.Forms.HScrollBar();
-            this.greenScalePScroll = new System.Windows.Forms.HScrollBar();
-            this.blueScalePScroll = new System.Windows.Forms.HScrollBar();
-            this.saturationPScroll = new System.Windows.Forms.HScrollBar();
-            this.huePScroll = new System.Windows.Forms.HScrollBar();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.presetsTabPage.SuspendLayout();
+            this.huePickerTabPage.SuspendLayout();
             this.pickerTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rotationBlueRedNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotationGreenBlueNumeric)).BeginInit();
@@ -129,7 +135,6 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.previewPanel.SuspendLayout();
-            this.huePickerTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -187,6 +192,148 @@
             this.presetListBox.Size = new System.Drawing.Size(1101, 334);
             this.presetListBox.TabIndex = 0;
             this.presetListBox.SelectedIndexChanged += new System.EventHandler(this.presetListBox_SelectedIndexChanged);
+            // 
+            // huePickerTabPage
+            // 
+            this.huePickerTabPage.Controls.Add(this.button1);
+            this.huePickerTabPage.Controls.Add(this.label28);
+            this.huePickerTabPage.Controls.Add(this.label27);
+            this.huePickerTabPage.Controls.Add(this.label26);
+            this.huePickerTabPage.Controls.Add(this.label25);
+            this.huePickerTabPage.Controls.Add(this.label24);
+            this.huePickerTabPage.Controls.Add(this.label23);
+            this.huePickerTabPage.Controls.Add(this.label22);
+            this.huePickerTabPage.Controls.Add(this.label21);
+            this.huePickerTabPage.Controls.Add(this.huePScroll);
+            this.huePickerTabPage.Controls.Add(this.saturationPScroll);
+            this.huePickerTabPage.Controls.Add(this.blueScalePScroll);
+            this.huePickerTabPage.Controls.Add(this.greenScalePScroll);
+            this.huePickerTabPage.Controls.Add(this.redScalePScroll);
+            this.huePickerTabPage.Controls.Add(this.blueOffsetPScroll);
+            this.huePickerTabPage.Controls.Add(this.greenOffsetPScroll);
+            this.huePickerTabPage.Controls.Add(this.redOffsetPScroll);
+            this.huePickerTabPage.Location = new System.Drawing.Point(4, 22);
+            this.huePickerTabPage.Name = "huePickerTabPage";
+            this.huePickerTabPage.Size = new System.Drawing.Size(1107, 340);
+            this.huePickerTabPage.TabIndex = 3;
+            this.huePickerTabPage.Text = "Hue Picker";
+            this.huePickerTabPage.UseVisualStyleBackColor = true;
+            this.huePickerTabPage.Paint += new System.Windows.Forms.PaintEventHandler(this.huePickerTabPage_Paint);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(17, 145);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(27, 13);
+            this.label24.TabIndex = 11;
+            this.label24.Text = "Hue";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(17, 118);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(55, 13);
+            this.label23.TabIndex = 10;
+            this.label23.Text = "Saturation";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(17, 77);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(34, 13);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "Scale";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(17, 55);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(35, 13);
+            this.label21.TabIndex = 8;
+            this.label21.Text = "Offset";
+            // 
+            // huePScroll
+            // 
+            this.huePScroll.Location = new System.Drawing.Point(78, 141);
+            this.huePScroll.Maximum = 720;
+            this.huePScroll.Name = "huePScroll";
+            this.huePScroll.Size = new System.Drawing.Size(583, 17);
+            this.huePScroll.TabIndex = 7;
+            this.huePScroll.ValueChanged += new System.EventHandler(this.huePScroll_ValueChanged);
+            // 
+            // saturationPScroll
+            // 
+            this.saturationPScroll.Location = new System.Drawing.Point(78, 114);
+            this.saturationPScroll.Maximum = 400;
+            this.saturationPScroll.Name = "saturationPScroll";
+            this.saturationPScroll.Size = new System.Drawing.Size(583, 17);
+            this.saturationPScroll.TabIndex = 6;
+            this.saturationPScroll.Value = 100;
+            this.saturationPScroll.ValueChanged += new System.EventHandler(this.saturationPScroll_ValueChanged);
+            // 
+            // blueScalePScroll
+            // 
+            this.blueScalePScroll.Location = new System.Drawing.Point(491, 73);
+            this.blueScalePScroll.Maximum = 200;
+            this.blueScalePScroll.Name = "blueScalePScroll";
+            this.blueScalePScroll.Size = new System.Drawing.Size(170, 17);
+            this.blueScalePScroll.TabIndex = 5;
+            this.blueScalePScroll.Value = 100;
+            this.blueScalePScroll.ValueChanged += new System.EventHandler(this.blueScalePScroll_ValueChanged);
+            // 
+            // greenScalePScroll
+            // 
+            this.greenScalePScroll.Location = new System.Drawing.Point(275, 73);
+            this.greenScalePScroll.Maximum = 200;
+            this.greenScalePScroll.Name = "greenScalePScroll";
+            this.greenScalePScroll.Size = new System.Drawing.Size(184, 17);
+            this.greenScalePScroll.TabIndex = 4;
+            this.greenScalePScroll.Value = 100;
+            this.greenScalePScroll.ValueChanged += new System.EventHandler(this.greenScalePScroll_ValueChanged);
+            // 
+            // redScalePScroll
+            // 
+            this.redScalePScroll.Location = new System.Drawing.Point(78, 73);
+            this.redScalePScroll.Maximum = 200;
+            this.redScalePScroll.Name = "redScalePScroll";
+            this.redScalePScroll.Size = new System.Drawing.Size(164, 17);
+            this.redScalePScroll.TabIndex = 3;
+            this.redScalePScroll.Value = 100;
+            this.redScalePScroll.ValueChanged += new System.EventHandler(this.redScalePScroll_ValueChanged);
+            // 
+            // blueOffsetPScroll
+            // 
+            this.blueOffsetPScroll.Location = new System.Drawing.Point(491, 50);
+            this.blueOffsetPScroll.Maximum = 50;
+            this.blueOffsetPScroll.Minimum = -50;
+            this.blueOffsetPScroll.Name = "blueOffsetPScroll";
+            this.blueOffsetPScroll.Size = new System.Drawing.Size(170, 17);
+            this.blueOffsetPScroll.TabIndex = 2;
+            this.blueOffsetPScroll.ValueChanged += new System.EventHandler(this.blueOffsetPScroll_ValueChanged);
+            // 
+            // greenOffsetPScroll
+            // 
+            this.greenOffsetPScroll.Location = new System.Drawing.Point(275, 50);
+            this.greenOffsetPScroll.Maximum = 50;
+            this.greenOffsetPScroll.Minimum = -50;
+            this.greenOffsetPScroll.Name = "greenOffsetPScroll";
+            this.greenOffsetPScroll.Size = new System.Drawing.Size(184, 17);
+            this.greenOffsetPScroll.TabIndex = 1;
+            this.greenOffsetPScroll.ValueChanged += new System.EventHandler(this.greenOffsetPScroll_ValueChanged);
+            // 
+            // redOffsetPScroll
+            // 
+            this.redOffsetPScroll.Location = new System.Drawing.Point(78, 50);
+            this.redOffsetPScroll.Maximum = 50;
+            this.redOffsetPScroll.Minimum = -50;
+            this.redOffsetPScroll.Name = "redOffsetPScroll";
+            this.redOffsetPScroll.Size = new System.Drawing.Size(164, 17);
+            this.redOffsetPScroll.TabIndex = 0;
+            this.redOffsetPScroll.ValueChanged += new System.EventHandler(this.redOffsetPScroll_ValueChanged);
             // 
             // pickerTabPage
             // 
@@ -928,138 +1075,52 @@
             this.themeNameLabel.TabIndex = 1;
             this.themeNameLabel.Text = "Original";
             // 
-            // huePickerTabPage
+            // label25
             // 
-            this.huePickerTabPage.Controls.Add(this.label24);
-            this.huePickerTabPage.Controls.Add(this.label23);
-            this.huePickerTabPage.Controls.Add(this.label22);
-            this.huePickerTabPage.Controls.Add(this.label21);
-            this.huePickerTabPage.Controls.Add(this.huePScroll);
-            this.huePickerTabPage.Controls.Add(this.saturationPScroll);
-            this.huePickerTabPage.Controls.Add(this.blueScalePScroll);
-            this.huePickerTabPage.Controls.Add(this.greenScalePScroll);
-            this.huePickerTabPage.Controls.Add(this.redScalePScroll);
-            this.huePickerTabPage.Controls.Add(this.blueOffsetPScroll);
-            this.huePickerTabPage.Controls.Add(this.greenOffsetPScroll);
-            this.huePickerTabPage.Controls.Add(this.redOffsetPScroll);
-            this.huePickerTabPage.Location = new System.Drawing.Point(4, 22);
-            this.huePickerTabPage.Name = "huePickerTabPage";
-            this.huePickerTabPage.Size = new System.Drawing.Size(1107, 340);
-            this.huePickerTabPage.TabIndex = 3;
-            this.huePickerTabPage.Text = "Hue Picker";
-            this.huePickerTabPage.UseVisualStyleBackColor = true;
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(147, 26);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(27, 13);
+            this.label25.TabIndex = 12;
+            this.label25.Text = "Red";
             // 
-            // redOffsetPScroll
+            // label26
             // 
-            this.redOffsetPScroll.Location = new System.Drawing.Point(78, 50);
-            this.redOffsetPScroll.Maximum = 510;
-            this.redOffsetPScroll.Minimum = -510;
-            this.redOffsetPScroll.Name = "redOffsetPScroll";
-            this.redOffsetPScroll.Size = new System.Drawing.Size(164, 17);
-            this.redOffsetPScroll.TabIndex = 0;
-            this.redOffsetPScroll.ValueChanged += new System.EventHandler(this.redOffsetPScroll_ValueChanged);
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(351, 26);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(36, 13);
+            this.label26.TabIndex = 13;
+            this.label26.Text = "Green";
             // 
-            // greenOffsetPScroll
+            // label27
             // 
-            this.greenOffsetPScroll.Location = new System.Drawing.Point(275, 50);
-            this.greenOffsetPScroll.Maximum = 510;
-            this.greenOffsetPScroll.Minimum = -510;
-            this.greenOffsetPScroll.Name = "greenOffsetPScroll";
-            this.greenOffsetPScroll.Size = new System.Drawing.Size(184, 17);
-            this.greenOffsetPScroll.TabIndex = 1;
-            this.greenOffsetPScroll.ValueChanged += new System.EventHandler(this.greenOffsetPScroll_ValueChanged);
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(562, 26);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(28, 13);
+            this.label27.TabIndex = 14;
+            this.label27.Text = "Blue";
             // 
-            // blueOffsetPScroll
+            // label28
             // 
-            this.blueOffsetPScroll.Location = new System.Drawing.Point(491, 50);
-            this.blueOffsetPScroll.Maximum = 510;
-            this.blueOffsetPScroll.Minimum = -510;
-            this.blueOffsetPScroll.Name = "blueOffsetPScroll";
-            this.blueOffsetPScroll.Size = new System.Drawing.Size(170, 17);
-            this.blueOffsetPScroll.TabIndex = 2;
-            this.blueOffsetPScroll.ValueChanged += new System.EventHandler(this.blueOffsetPScroll_ValueChanged);
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(17, 183);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(383, 13);
+            this.label28.TabIndex = 15;
+            this.label28.Text = "Will always operate from identity, wont be able to alter other matrixes like pres" +
+    "ets";
             // 
-            // redScalePScroll
+            // button1
             // 
-            this.redScalePScroll.Location = new System.Drawing.Point(78, 73);
-            this.redScalePScroll.Maximum = 200;
-            this.redScalePScroll.Name = "redScalePScroll";
-            this.redScalePScroll.Size = new System.Drawing.Size(164, 17);
-            this.redScalePScroll.TabIndex = 3;
-            this.redScalePScroll.ValueChanged += new System.EventHandler(this.redScalePScroll_ValueChanged);
-            // 
-            // greenScalePScroll
-            // 
-            this.greenScalePScroll.Location = new System.Drawing.Point(275, 73);
-            this.greenScalePScroll.Maximum = 200;
-            this.greenScalePScroll.Name = "greenScalePScroll";
-            this.greenScalePScroll.Size = new System.Drawing.Size(184, 17);
-            this.greenScalePScroll.TabIndex = 4;
-            this.greenScalePScroll.ValueChanged += new System.EventHandler(this.greenScalePScroll_ValueChanged);
-            // 
-            // blueScalePScroll
-            // 
-            this.blueScalePScroll.Location = new System.Drawing.Point(491, 73);
-            this.blueScalePScroll.Maximum = 200;
-            this.blueScalePScroll.Name = "blueScalePScroll";
-            this.blueScalePScroll.Size = new System.Drawing.Size(170, 17);
-            this.blueScalePScroll.TabIndex = 5;
-            this.blueScalePScroll.ValueChanged += new System.EventHandler(this.blueScalePScroll_ValueChanged);
-            // 
-            // saturationPScroll
-            // 
-            this.saturationPScroll.Location = new System.Drawing.Point(78, 99);
-            this.saturationPScroll.Maximum = 400;
-            this.saturationPScroll.Name = "saturationPScroll";
-            this.saturationPScroll.Size = new System.Drawing.Size(164, 16);
-            this.saturationPScroll.TabIndex = 6;
-            this.saturationPScroll.Value = 100;
-            this.saturationPScroll.ValueChanged += new System.EventHandler(this.saturationPScroll_ValueChanged);
-            // 
-            // huePScroll
-            // 
-            this.huePScroll.Location = new System.Drawing.Point(78, 124);
-            this.huePScroll.Maximum = 360;
-            this.huePScroll.Name = "huePScroll";
-            this.huePScroll.Size = new System.Drawing.Size(164, 18);
-            this.huePScroll.TabIndex = 7;
-            this.huePScroll.ValueChanged += new System.EventHandler(this.huePScroll_ValueChanged);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(17, 55);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(35, 13);
-            this.label21.TabIndex = 8;
-            this.label21.Text = "Offset";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(17, 77);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(34, 13);
-            this.label22.TabIndex = 9;
-            this.label22.Text = "Scale";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(17, 102);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(55, 13);
-            this.label23.TabIndex = 10;
-            this.label23.Text = "Saturation";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(17, 129);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(27, 13);
-            this.label24.TabIndex = 11;
-            this.label24.Text = "Hue";
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Reset";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainFrm
             // 
@@ -1068,7 +1129,7 @@
             this.ClientSize = new System.Drawing.Size(1309, 668);
             this.Controls.Add(this.splitContainer1);
             this.Name = "MainFrm";
-            this.Text = "Elite Theme v2";
+            this.Text = "Elite Theme v3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFrm_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -1077,6 +1138,8 @@
             this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.presetsTabPage.ResumeLayout(false);
+            this.huePickerTabPage.ResumeLayout(false);
+            this.huePickerTabPage.PerformLayout();
             this.pickerTabPage.ResumeLayout(false);
             this.pickerTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rotationBlueRedNumeric)).EndInit();
@@ -1098,8 +1161,6 @@
             this.panel1.PerformLayout();
             this.previewPanel.ResumeLayout(false);
             this.previewPanel.PerformLayout();
-            this.huePickerTabPage.ResumeLayout(false);
-            this.huePickerTabPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1184,6 +1245,11 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Button button1;
     }
 }
 
