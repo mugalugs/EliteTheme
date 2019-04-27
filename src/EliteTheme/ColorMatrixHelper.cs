@@ -24,9 +24,9 @@ namespace EliteTheme
                 for (int x = 0; x < 4; x++)
                 {
                     tmp[y][x] = b[y][0] * a[0][x]
-                       + b[y][1] * a[1][x]
-                       + b[y][2] * a[2][x]
-                       + b[y][3] * a[3][x];
+                              + b[y][1] * a[1][x]
+                              + b[y][2] * a[2][x]
+                              + b[y][3] * a[3][x];
                 }
             }
 
@@ -208,9 +208,7 @@ namespace EliteTheme
             yrs = -1.0f / mag;
             yrc = (float)Math.Sqrt(2.0) / mag;
             RotateY(ref tmp, yrs, yrc);
-
-            //Multiply(tmp, matrix, ref matrix);
-
+            
             /* shear the space to make the luminance plane horizontal */
             t = TransformPoint(tmp, RED_LUMINANCE, GREEN_LUMINANCE, BLUE_LUMINANCE);
             zsx = t[0] / t[2];

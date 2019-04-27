@@ -22,6 +22,8 @@ namespace EliteTheme
         //http://imgur.com/gallery/RVEsI - black ui
         //https://forums.frontier.co.uk/showthread.php?t=73419 - 20 page thread with presets
 
+        //https://docs.rainmeter.net/tips/colormatrix-guide/
+
         Theme currentTheme = new Theme();
         bool ignoreUpdate = false;
         Random randomGenerator = new Random();
@@ -166,10 +168,17 @@ namespace EliteTheme
                 themes.Add(theme);
             }
 
-            using (Stream stream = File.Create("customThemes.xml"))
+            try
             {
-                XmlSerializer ser = new XmlSerializer(typeof(List<Theme>), new XmlRootAttribute("Themes"));
-                ser.Serialize(stream, themes);
+                using (Stream stream = File.Create("customThemes.xml"))
+                {
+                    XmlSerializer ser = new XmlSerializer(typeof(List<Theme>), new XmlRootAttribute("Themes"));
+                    ser.Serialize(stream, themes);
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Exception:\n" + exc.Message);
             }
         }
 
@@ -839,6 +848,13 @@ namespace EliteTheme
             rotationBlueRedScroll.Value = (int)rotationBlueRedNumeric.Value;
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            rotationRedGreenScroll.Value = 0;
+            rotationGreenBlueScroll.Value = 0;
+            rotationBlueRedScroll.Value = 0;
+        }
+
         #endregion
 
         #region Hue Picker Events
@@ -849,18 +865,17 @@ namespace EliteTheme
 
             float[][] m = ColorMatrixHelper.CreateIdentity();
 
-            //it 'can' alter preset or picker but only for hue
-            //offset, scale, or saturation changes would immediately ruin it
-            //these values can't be reverse engineered
-
+            //it 'can' alter preset or picker but only for hue and saturation
+            //offset or scale changes would immediately ruin it, 'brightness'/'intensity'
+            
             ColorMatrixHelper.Offset(ref m, (float)redOffsetPScroll.Value / 100, (float)greenOffsetPScroll.Value / 100, (float)blueOffsetPScroll.Value / 100);
+            //ColorMatrixHelper.Offset(ref m, redOffsetPScroll.Value, greenOffsetPScroll.Value, blueOffsetPScroll.Value);
+
             ColorMatrixHelper.Scale(ref m, (float)redScalePScroll.Value / 100, (float)greenScalePScroll.Value / 100, (float)blueScalePScroll.Value / 100);
             ColorMatrixHelper.Saturation(ref m, (float)saturationPScroll.Value / 100);
             ColorMatrixHelper.HueRotate(ref m, (float)huePScroll.Value / 2);
 
-            currentTheme.Matrix = ColorMatrixHelper.Compat(m);
-
-            SetTheme(null);
+            SetTheme(new Theme("Hue " + huePScroll.Value, ColorMatrixHelper.Compat(m)));
         }
 
         private void huePScroll_ValueChanged(object sender, EventArgs e)
@@ -905,6 +920,8 @@ namespace EliteTheme
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ignoreUpdate = true;
+
             redOffsetPScroll.Value = 0;
             greenOffsetPScroll.Value = 0;
             blueOffsetPScroll.Value = 0;
@@ -912,6 +929,9 @@ namespace EliteTheme
             greenScalePScroll.Value = 100;
             blueScalePScroll.Value = 100;
             saturationPScroll.Value = 100;
+
+            ignoreUpdate = false;
+
             huePScroll.Value = 0;
         }
 
@@ -943,6 +963,5 @@ namespace EliteTheme
         }
 
         #endregion
-
     }
 }

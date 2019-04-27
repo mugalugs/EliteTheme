@@ -33,6 +33,11 @@
             this.presetsTabPage = new System.Windows.Forms.TabPage();
             this.presetListBox = new System.Windows.Forms.ListBox();
             this.huePickerTabPage = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -106,11 +111,7 @@
             this.useThemeBtn = new System.Windows.Forms.Button();
             this.previewPanel = new System.Windows.Forms.Panel();
             this.themeNameLabel = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -140,6 +141,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -155,7 +157,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.previewPanel);
             this.splitContainer1.Panel2MinSize = 220;
             this.splitContainer1.Size = new System.Drawing.Size(1309, 668);
-            this.splitContainer1.SplitterDistance = 366;
+            this.splitContainer1.SplitterDistance = 232;
             this.splitContainer1.TabIndex = 0;
             // 
             // tabControl1
@@ -168,7 +170,7 @@
             this.tabControl1.Location = new System.Drawing.Point(194, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1115, 366);
+            this.tabControl1.Size = new System.Drawing.Size(1115, 232);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -178,7 +180,7 @@
             this.presetsTabPage.Location = new System.Drawing.Point(4, 22);
             this.presetsTabPage.Name = "presetsTabPage";
             this.presetsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.presetsTabPage.Size = new System.Drawing.Size(1107, 340);
+            this.presetsTabPage.Size = new System.Drawing.Size(1107, 206);
             this.presetsTabPage.TabIndex = 0;
             this.presetsTabPage.Text = "Presets";
             this.presetsTabPage.UseVisualStyleBackColor = true;
@@ -189,7 +191,7 @@
             this.presetListBox.FormattingEnabled = true;
             this.presetListBox.Location = new System.Drawing.Point(3, 3);
             this.presetListBox.Name = "presetListBox";
-            this.presetListBox.Size = new System.Drawing.Size(1101, 334);
+            this.presetListBox.Size = new System.Drawing.Size(1101, 200);
             this.presetListBox.TabIndex = 0;
             this.presetListBox.SelectedIndexChanged += new System.EventHandler(this.presetListBox_SelectedIndexChanged);
             // 
@@ -214,11 +216,58 @@
             this.huePickerTabPage.Controls.Add(this.redOffsetPScroll);
             this.huePickerTabPage.Location = new System.Drawing.Point(4, 22);
             this.huePickerTabPage.Name = "huePickerTabPage";
-            this.huePickerTabPage.Size = new System.Drawing.Size(1107, 340);
+            this.huePickerTabPage.Size = new System.Drawing.Size(1107, 206);
             this.huePickerTabPage.TabIndex = 3;
             this.huePickerTabPage.Text = "Hue Picker";
             this.huePickerTabPage.UseVisualStyleBackColor = true;
             this.huePickerTabPage.Paint += new System.Windows.Forms.PaintEventHandler(this.huePickerTabPage_Paint);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Reset";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(17, 183);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(383, 13);
+            this.label28.TabIndex = 15;
+            this.label28.Text = "Will always operate from identity, wont be able to alter other matrixes like pres" +
+    "ets";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(562, 26);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(28, 13);
+            this.label27.TabIndex = 14;
+            this.label27.Text = "Blue";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(351, 26);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(36, 13);
+            this.label26.TabIndex = 13;
+            this.label26.Text = "Green";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(147, 26);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(27, 13);
+            this.label25.TabIndex = 12;
+            this.label25.Text = "Red";
             // 
             // label24
             // 
@@ -255,6 +304,7 @@
             this.label21.Size = new System.Drawing.Size(35, 13);
             this.label21.TabIndex = 8;
             this.label21.Text = "Offset";
+            this.label21.Visible = false;
             // 
             // huePScroll
             // 
@@ -313,6 +363,7 @@
             this.blueOffsetPScroll.Name = "blueOffsetPScroll";
             this.blueOffsetPScroll.Size = new System.Drawing.Size(170, 17);
             this.blueOffsetPScroll.TabIndex = 2;
+            this.blueOffsetPScroll.Visible = false;
             this.blueOffsetPScroll.ValueChanged += new System.EventHandler(this.blueOffsetPScroll_ValueChanged);
             // 
             // greenOffsetPScroll
@@ -323,22 +374,25 @@
             this.greenOffsetPScroll.Name = "greenOffsetPScroll";
             this.greenOffsetPScroll.Size = new System.Drawing.Size(184, 17);
             this.greenOffsetPScroll.TabIndex = 1;
+            this.greenOffsetPScroll.Visible = false;
             this.greenOffsetPScroll.ValueChanged += new System.EventHandler(this.greenOffsetPScroll_ValueChanged);
             // 
             // redOffsetPScroll
             // 
             this.redOffsetPScroll.Location = new System.Drawing.Point(78, 50);
-            this.redOffsetPScroll.Maximum = 50;
-            this.redOffsetPScroll.Minimum = -50;
+            this.redOffsetPScroll.Maximum = 500;
+            this.redOffsetPScroll.Minimum = -500;
             this.redOffsetPScroll.Name = "redOffsetPScroll";
             this.redOffsetPScroll.Size = new System.Drawing.Size(164, 17);
             this.redOffsetPScroll.TabIndex = 0;
+            this.redOffsetPScroll.Visible = false;
             this.redOffsetPScroll.ValueChanged += new System.EventHandler(this.redOffsetPScroll_ValueChanged);
             // 
             // pickerTabPage
             // 
             this.pickerTabPage.AutoScroll = true;
             this.pickerTabPage.BackColor = System.Drawing.Color.White;
+            this.pickerTabPage.Controls.Add(this.button2);
             this.pickerTabPage.Controls.Add(this.label20);
             this.pickerTabPage.Controls.Add(this.label19);
             this.pickerTabPage.Controls.Add(this.label18);
@@ -387,7 +441,7 @@
             this.pickerTabPage.Location = new System.Drawing.Point(4, 22);
             this.pickerTabPage.Name = "pickerTabPage";
             this.pickerTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.pickerTabPage.Size = new System.Drawing.Size(1107, 340);
+            this.pickerTabPage.Size = new System.Drawing.Size(1107, 206);
             this.pickerTabPage.TabIndex = 1;
             this.pickerTabPage.Text = "Picker";
             this.pickerTabPage.UseVisualStyleBackColor = true;
@@ -923,7 +977,7 @@
             this.customTabPage.Controls.Add(this.panel2);
             this.customTabPage.Location = new System.Drawing.Point(4, 22);
             this.customTabPage.Name = "customTabPage";
-            this.customTabPage.Size = new System.Drawing.Size(1107, 340);
+            this.customTabPage.Size = new System.Drawing.Size(1107, 206);
             this.customTabPage.TabIndex = 2;
             this.customTabPage.Text = "Custom";
             this.customTabPage.UseVisualStyleBackColor = true;
@@ -934,7 +988,7 @@
             this.customListBox.FormattingEnabled = true;
             this.customListBox.Location = new System.Drawing.Point(0, 0);
             this.customListBox.Name = "customListBox";
-            this.customListBox.Size = new System.Drawing.Size(992, 340);
+            this.customListBox.Size = new System.Drawing.Size(992, 206);
             this.customListBox.TabIndex = 1;
             this.customListBox.SelectedIndexChanged += new System.EventHandler(this.customListBox_SelectedIndexChanged);
             // 
@@ -947,7 +1001,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(992, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(115, 340);
+            this.panel2.Size = new System.Drawing.Size(115, 206);
             this.panel2.TabIndex = 0;
             // 
             // saveCustomBtn
@@ -998,7 +1052,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(194, 366);
+            this.panel1.Size = new System.Drawing.Size(194, 232);
             this.panel1.TabIndex = 0;
             // 
             // label17
@@ -1059,7 +1113,7 @@
             this.previewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.previewPanel.Location = new System.Drawing.Point(0, 0);
             this.previewPanel.Name = "previewPanel";
-            this.previewPanel.Size = new System.Drawing.Size(1309, 298);
+            this.previewPanel.Size = new System.Drawing.Size(1309, 432);
             this.previewPanel.TabIndex = 0;
             this.previewPanel.Click += new System.EventHandler(this.previewPanel_Click);
             this.previewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.previewPanel_Paint);
@@ -1075,52 +1129,15 @@
             this.themeNameLabel.TabIndex = 1;
             this.themeNameLabel.Text = "Original";
             // 
-            // label25
+            // button2
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(147, 26);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(27, 13);
-            this.label25.TabIndex = 12;
-            this.label25.Text = "Red";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(351, 26);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(36, 13);
-            this.label26.TabIndex = 13;
-            this.label26.Text = "Green";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(562, 26);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(28, 13);
-            this.label27.TabIndex = 14;
-            this.label27.Text = "Blue";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(17, 183);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(383, 13);
-            this.label28.TabIndex = 15;
-            this.label28.Text = "Will always operate from identity, wont be able to alter other matrixes like pres" +
-    "ets";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Reset";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button2.Location = new System.Drawing.Point(777, 153);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 54;
+            this.button2.Text = "Reset";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MainFrm
             // 
@@ -1250,6 +1267,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
